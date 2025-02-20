@@ -20,6 +20,8 @@ namespace COMP003A.ZooManagementSystem
 
                 try
                 {
+                    if (choice != "1" || choice != "2" || choice != "3" || choice != "4" || choice != "5")
+                        throw new ArgumentException("Invalid input. Only numbers 1-5 are allowed.");
                     switch (choice)
                     {
                         case "1":
@@ -27,18 +29,40 @@ namespace COMP003A.ZooManagementSystem
                             try
                             {
                                 Console.Write("Enter the name of the lion: ");
-                                Console.ReadLine();
+                                string name = Console.ReadLine();
+                                if (string.IsNullOrWhiteSpace(name))
+                                    throw new ArgumentException("Name cannot be null or empty.");
+
                                 Console.Write("Enter the species of the lion: ");
-                                Console.ReadLine();
+                                string species = Console.ReadLine();
+                                if (string.IsNullOrWhiteSpace(species))
+                                      throw new ArgumentException("Species cannot be null or empty.");
                             }
-                            catch
+                            catch (ArgumentException ex)
                             {
-                                
+                                Console.WriteLine($"Error: {ex.Message}");
                             }
                             break;
                         }
                         case "2":
                         {
+                            try
+                            {
+                                //nullorwhitespace prevents either nothing or spaces from being the value from these inputs
+                                Console.Write("Enter the name of the lion: ");
+                                string name = Console.ReadLine();
+                                if (string.IsNullOrWhiteSpace(name))
+                                    throw new ArgumentException("Name cannot be null or empty.");
+
+                                Console.Write("Enter the species of the lion: ");
+                                string species = Console.ReadLine();
+                                if (string.IsNullOrWhiteSpace(species))
+                                    throw new ArgumentException("Species cannot be null or empty.");
+                            }
+                            catch (ArgumentException ex)
+                            {
+                                Console.WriteLine($"Error: {ex.Message}");
+                            }
                             break;
                         }
                         case "3":
@@ -51,9 +75,9 @@ namespace COMP003A.ZooManagementSystem
                         }
                     }
                 }
-                catch
+                catch (ArgumentException ex)
                 {
-                
+                    Console.WriteLine($"Error: {ex.Message}");
                 }
             }
         }
