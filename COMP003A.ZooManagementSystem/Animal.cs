@@ -29,5 +29,10 @@ namespace COMP003A.ZooManagementSystem
             Name = name;
             Species = species;
         }
+
+        public virtual void MakeSound()
+        {
+            Console.WriteLine("Animal Noise");
+        }
     }
 }

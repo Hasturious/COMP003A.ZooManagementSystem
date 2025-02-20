@@ -10,11 +10,11 @@ namespace COMP003A.ZooManagementSystem
     {
         public Lion(string name, string species) : base(name, species) { }
 
-        /*
+        
         public override void MakeSound()
         {
             Console.WriteLine("The Lion Roars!");
         }
-        */
+        
     }
 }
