@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace COMP003A.ZooManagementSystem
 {
-    internal class Animal
+    abstract class Animal
     {
         private string _name;
         private string _species;
@@ -15,9 +15,23 @@ namespace COMP003A.ZooManagementSystem
         public string Name
         {
             get { return _name; }
-            set { _name = value; }
+            set
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                    throw new ArgumentNullException("Name can't be empty");
+                _name = value;
+            }
         }
-        public string Species { get; set; }
+        public string Species
+        {
+            get { return _species; }
+            set
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                    throw new ArgumentException("Species can't be null or empty.");
+                _species = value;
+            }
+        }
 
         /// <summary>
         /// Animal constructor
@@ -30,9 +44,6 @@ namespace COMP003A.ZooManagementSystem
             Species = species;
         }
 
-        public virtual void MakeSound()
-        {
-            Console.WriteLine("Animal Noise");
-        }
+        public abstract void MakeSound();
     }
 }
