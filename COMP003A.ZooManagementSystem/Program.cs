@@ -20,7 +20,7 @@ namespace COMP003A.ZooManagementSystem
 
                 try
                 {
-                    if (choice != "1" || choice != "2" || choice != "3" || choice != "4" || choice != "5")
+                    if (choice != "1" && choice != "2" && choice != "3" && choice != "4" && choice != "5")
                         throw new ArgumentException("Invalid input. Only numbers 1-5 are allowed.");
                     switch (choice)
                     {
@@ -31,13 +31,23 @@ namespace COMP003A.ZooManagementSystem
                                 Console.Write("Enter the name of the lion: ");
                                 string name = Console.ReadLine();
                                 if (string.IsNullOrWhiteSpace(name))
+                                {
                                     throw new ArgumentException("Name cannot be null or empty.");
+                                }
 
                                 Console.Write("Enter the species of the lion: ");
                                 string species = Console.ReadLine();
                                 if (string.IsNullOrWhiteSpace(species))
+                                {
                                       throw new ArgumentException("Species cannot be null or empty.");
-                            }
+                                }
+                                Console.WriteLine();
+
+                                Animal lion = new Lion(name, species);
+                                animals.Add(lion);
+
+                                Console.WriteLine("Lion added successfully!");
+                                }
                             catch (ArgumentException ex)
                             {
                                 Console.WriteLine($"Error: {ex.Message}");
@@ -48,25 +58,35 @@ namespace COMP003A.ZooManagementSystem
                         {
                             try
                             {
-                                //nullorwhitespace prevents either nothing or spaces from being the value from these inputs
-                                Console.Write("Enter the name of the lion: ");
+                                Console.Write("Enter the name of the parrot: ");
                                 string name = Console.ReadLine();
                                 if (string.IsNullOrWhiteSpace(name))
+                                {
                                     throw new ArgumentException("Name cannot be null or empty.");
+                                }
 
-                                Console.Write("Enter the species of the lion: ");
+                                Console.Write("Enter the species of the parrot: ");
                                 string species = Console.ReadLine();
                                 if (string.IsNullOrWhiteSpace(species))
+                                {
                                     throw new ArgumentException("Species cannot be null or empty.");
-                            }
+                                }
+                                Console.WriteLine();
+
+                                Animal parrot = new Parrot(name, species);
+                                animals.Add(parrot);
+
+                                Console.WriteLine("parrot added successfully!");
+                                }
                             catch (ArgumentException ex)
                             {
                                 Console.WriteLine($"Error: {ex.Message}");
                             }
                             break;
-                        }
+                            }
                         case "3":
                         {
+                            ZooUtility.DisplayAllAnimals(animals);
                             break;
                         }
                         case "4":

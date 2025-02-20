@@ -8,6 +8,15 @@ namespace COMP003A.ZooManagementSystem
 {
     static class ZooUtility
     {
-        //public static void  
+        public static void DisplayAllAnimals(List<Animal> animals)
+        {
+            Console.WriteLine("\nList of all animals:");
+            foreach (var Animal in animals)
+            {
+                Console.Write($"{Animal.Name} {Animal.Species} ");
+            }
+            Console.WriteLine(); // Ensure the output is formatted correctly
+        }
     }
 }
+
