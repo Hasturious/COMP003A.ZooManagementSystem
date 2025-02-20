@@ -8,11 +8,15 @@ namespace COMP003A.ZooManagementSystem
 {
     internal class Animal
     {
-        private _name;
-        private _species;
+        private string _name;
+        private string _species;
 
         //Name/Species definers
-        public string Name { get; set; }
+        public string Name
+        {
+            get { return _name; }
+            set { _name = value; }
+        }
         public string Species { get; set; }
 
         /// <summary>
@@ -20,7 +24,7 @@ namespace COMP003A.ZooManagementSystem
         /// </summary>
         /// <param name="namem"></param>
         /// <param name="species"></param>
-        public Animal(string name string species)
+        public Animal(string name, string species)
         {
             Name = name;
             Species = species;
