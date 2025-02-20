@@ -13,7 +13,9 @@ namespace COMP003A.ZooManagementSystem
             Console.WriteLine("\nList of all animals:");
             foreach (var Animal in animals)
             {
-                Console.Write($"{Animal.Name} {Animal.Species} ");
+                Animal.MakeSound();
+                Console.Write($" {Animal.Name} {Animal.Species} ");
+                
             }
             Console.WriteLine(); // Ensure the output is formatted correctly
         }
