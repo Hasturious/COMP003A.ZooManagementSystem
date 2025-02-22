@@ -94,8 +94,10 @@ namespace COMP003A.ZooManagementSystem
                         {
                             Console.Write("Enter the name of the animal to describe: ");
                             string name = Console.ReadLine();
-                            ZooUtility zooUtility = new ZooUtility();
-                            zooUtility.DescribeAnimal(name);
+                            ZooUtility describeAnimal = new ZooUtility();
+                            describeAnimal.DescribeAnimal(name);
+                            describeAnimal.DescribeAnimal(name, species);
+                            describeAnimal.DescribeAnimal(name, species, age);
                             break;
                         }
                     }
