@@ -86,11 +86,16 @@ namespace COMP003A.ZooManagementSystem
                             }
                         case "3":
                         {
+                                Console.WriteLine("Displaying all animals:");
                             ZooUtility.DisplayAllAnimals(animals);
                             break;
                         }
                         case "4":
                         {
+                            Console.Write("Enter the name of the animal to describe: ");
+                            string name = Console.ReadLine();
+                            ZooUtility zooUtility = new ZooUtility();
+                            zooUtility.DescribeAnimal(name);
                             break;
                         }
                     }

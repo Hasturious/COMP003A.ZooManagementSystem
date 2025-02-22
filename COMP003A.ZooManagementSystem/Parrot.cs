@@ -13,7 +13,7 @@ namespace COMP003A.ZooManagementSystem
         
         public override void MakeSound()
         {
-            Console.Write("The Parrot Squaks");
+            Console.Write("\nThe Parrot Squaks!");
         }
         
     }
