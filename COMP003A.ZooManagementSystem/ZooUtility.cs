@@ -20,19 +20,31 @@ namespace COMP003A.ZooManagementSystem
             Console.WriteLine(); // Ensure the output is formatted correctly
         }
         
-        // Method to display only the animal's name
+        /// <summary>
+        /// Constructs  and overloads the DescribeAnimal method
+        /// </summary>
+        /// <param name="name"></param>
         public void DescribeAnimal(string name)
         {
             Console.WriteLine($"Animal Name: {name}");
         }
 
-        // Overloaded method to display the animal's name and species
+        /// <summary>
+        /// Constructs  and overloads the DescribeAnimal method
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="species"></param>
         public void DescribeAnimal(string name, string species)
         {
             Console.WriteLine($"Animal Name: {name}, Species: {species}");
         }
 
-        // Overloaded method to display the animal's name, species, and age
+        /// <summary>
+        /// Constructs  and overloads the DescribeAnimal method
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="species"></param>
+        /// <param name="age"></param>
         public void DescribeAnimal(string name, string species, int age)
         {
             Console.WriteLine($"Animal Name: {name}, Species: {species}, Age: {age} years");

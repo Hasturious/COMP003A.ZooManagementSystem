@@ -12,6 +12,7 @@ namespace COMP003A.ZooManagementSystem
         private string _species;
 
         //Name/Species definers
+
         public string Name
         {
             get { return _name; }

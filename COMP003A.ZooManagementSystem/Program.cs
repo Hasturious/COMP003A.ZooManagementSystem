@@ -9,9 +9,10 @@ namespace COMP003A.ZooManagementSystem
     {
         static void Main(string[] args)
         {
+            //Our aniaml list
             List<Animal> animals = new List<Animal>();
-
             
+            //If the user does any option that isnt 5 the loop continues
             string choice = "0";
             while (choice != "5")
             {
@@ -20,6 +21,7 @@ namespace COMP003A.ZooManagementSystem
 
                 try
                 {
+                    //If the user tries any option that isnt between 1 and 5 we let them know its not valid
                     if (choice != "1" && choice != "2" && choice != "3" && choice != "4" && choice != "5")
                         throw new ArgumentException("Invalid input. Only numbers 1-5 are allowed.");
                     switch (choice)
@@ -28,6 +30,7 @@ namespace COMP003A.ZooManagementSystem
                         {
                             try
                             {
+                                //Let the user name the lion which ofcourse cant be null so I used a simple isNullOrWhiteSpace
                                 Console.Write("Enter the name of the lion: ");
                                 string name = Console.ReadLine();
                                 if (string.IsNullOrWhiteSpace(name))
@@ -35,6 +38,7 @@ namespace COMP003A.ZooManagementSystem
                                     throw new ArgumentException("Name cannot be null or empty.");
                                 }
 
+                                //Same here with the name
                                 Console.Write("Enter the species of the lion: ");
                                 string species = Console.ReadLine();
                                 if (string.IsNullOrWhiteSpace(species))
@@ -43,7 +47,9 @@ namespace COMP003A.ZooManagementSystem
                                 }
                                 Console.WriteLine();
 
+                                //Add the new lion to the Lion class
                                 Animal lion = new Lion(name, species);
+                                //add lion to the list of animals
                                 animals.Add(lion);
 
                                 Console.WriteLine("Lion added successfully!");
@@ -58,6 +64,7 @@ namespace COMP003A.ZooManagementSystem
                         {
                             try
                             {
+                                
                                 Console.Write("Enter the name of the parrot: ");
                                 string name = Console.ReadLine();
                                 if (string.IsNullOrWhiteSpace(name))
@@ -86,18 +93,40 @@ namespace COMP003A.ZooManagementSystem
                             }
                         case "3":
                         {
-                                Console.WriteLine("Displaying all animals:");
+                            Console.WriteLine("Displaying all animals:");
                             ZooUtility.DisplayAllAnimals(animals);
                             break;
                         }
                         case "4":
                         {
+                            ZooUtility describeAnimal = new ZooUtility();
+
                             Console.Write("Enter the name of the animal to describe: ");
                             string name = Console.ReadLine();
-                            ZooUtility describeAnimal = new ZooUtility();
                             describeAnimal.DescribeAnimal(name);
+
+                            Console.Write("\nEnter the species of the animal: ");
+                            string species = Console.ReadLine();
                             describeAnimal.DescribeAnimal(name, species);
-                            describeAnimal.DescribeAnimal(name, species, age);
+
+                            Console.Write("\nEnter the age of the animal: ");
+                            string ageInput = (Console.ReadLine());
+
+                            int age = -1; //Obviously the age of the animal cant be negative anything so we can use -1 as our way to dectect if no age was input
+
+                            if (!string.IsNullOrEmpty(ageInput)) 
+                            {
+                                age = int.Parse(ageInput);//If there was an input we can turn the string number into an int
+                                describeAnimal.DescribeAnimal(name, species, age);
+                            }
+                            /*
+                            else
+                            {
+                                describeAnimal.DescribeAnimal(name, species, age);
+                                //Console.WriteLine($"Animal Name: {name}, Species: {species}, Age: {age} years old");
+                            }
+                            */
+
                             break;
                         }
                     }
